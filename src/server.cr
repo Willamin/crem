@@ -36,7 +36,7 @@ config.root.env_var = ENV["CREM_ROOT"]?
 config.static_dir.env_var = ENV["CREM_STATIC_DIR"]?
 
 parser = OptionParser.new do |parser|
-parser.banner = "Usage: crem-server [options]"
+  parser.banner = "Usage: crem-server [options]"
   parser.on("--help", "show this help") { puts(parser); exit(0) }
 
   parser.separator
@@ -58,7 +58,7 @@ MIME.register(".gmi", "text/gemini")
 
 server = Gemini::Server.new([
   Gemini::Server::InternalRedirectHandler.new({
-    "" => config.root.unwrap,
+    ""  => config.root.unwrap,
     "/" => config.root.unwrap,
   }),
   Gemini::Server::StaticHandler.new(config.static_dir.unwrap),
@@ -81,4 +81,3 @@ rescue e : Gemini::Server::MissingPrivateKey
   puts()
   puts(parser)
 end
-

@@ -2,5 +2,5 @@ version: 2.0
 shards:
   gemini:
     git: https://github.com/Willamin/gemini.git
-    version: 0.1.0+git.commit.c36eb14709e113475e2293526106f3c2bd4723e8
+    version: 0.1.0+git.commit.345de285f5b3afc1d1d1a86af3f3cc4aa98a1d70
 

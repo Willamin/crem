@@ -1,3 +1,5 @@
+require "gemini"
+
 class Crem::REPL
   @history = [] of String
 
@@ -7,7 +9,7 @@ class Crem::REPL
       exit(0)
     end
 
-    Crem::Gemini::Client.open do |client|
+    Gemini::Client.open do |client|
       loop do
         print("uri to fetch: ")
         if line = STDIN.gets
@@ -22,3 +24,5 @@ class Crem::REPL
     end
   end
 end
+
+Crem::REPL.new.start

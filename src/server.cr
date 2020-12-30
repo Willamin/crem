@@ -57,6 +57,7 @@ parser.parse
 MIME.register(".gmi", "text/gemini")
 
 server = Gemini::Server.new([
+  Gemini::Server::LogHandler.new(STDOUT),
   Gemini::Server::InternalRedirectHandler.new({
     ""  => config.root.unwrap,
     "/" => config.root.unwrap,

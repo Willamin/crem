@@ -4,3 +4,7 @@ shards:
     git: https://github.com/Willamin/gemini.git
     version: 0.1.0+git.commit.345de285f5b3afc1d1d1a86af3f3cc4aa98a1d70
 
+  toml:
+    git: https://github.com/crystal-community/toml.cr.git
+    version: 0.7.0
+

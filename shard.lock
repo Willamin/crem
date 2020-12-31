@@ -2,7 +2,7 @@ version: 2.0
 shards:
   gemini:
     git: https://github.com/Willamin/gemini.git
-    version: 0.1.0+git.commit.345de285f5b3afc1d1d1a86af3f3cc4aa98a1d70
+    version: 0.1.0+git.commit.f2a17d3d83f51ed4a60ea66cf7421d15abcb4afc
 
   toml:
     git: https://github.com/crystal-community/toml.cr.git

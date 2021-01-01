@@ -19,6 +19,9 @@ class Crem::App
         .map { |r| Crem::Redirect.new(r["from"].as(String), r["to"].as(String), r["status"].as(Int64)) }
 
       @config.redirects.config_option = all_redirects.select(&.server_side?)
+
+      # TODO: rewrite this so it's readable for future dev work.
+      @config.static_dirs.config_option = parsed_config["static_directory"]?.try(&.as(Array).try(&.map(&.as(Hash)["path"]?.try(&.as(String))).compact))
     end
   end
 end

@@ -7,7 +7,7 @@ class Crem::App
 
     @config.root.env_var = ENV["CREM_ROOT"]?
     @config.no_root.env_var = ENV["CREM_NOROOT"]?.try(&.to_loose_bool)
-    @config.static_dir.env_var = ENV["CREM_STATIC_DIR"]?
+    @config.static_dirs.env_var = ENV["CREM_STATIC_DIR"]?.try { |dir| [dir] }
     @config.config_file.env_var = ENV["CREM_CONFIG"]?
   end
 end

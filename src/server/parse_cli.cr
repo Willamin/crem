@@ -15,7 +15,7 @@ class Crem::App
 
       parser.on("--root=PATH", "Specify the default root redirect path") { |path| @config.root.cli_flag = path }
       parser.on("--no-root", "Override the default so that root isn't redirected automatically") { |flag| @config.no_root.cli_flag = flag.to_loose_bool }
-      parser.on("--static-dir=DIR", "Specify the directory to serve statically") { |dir| @config.static_dir.cli_flag = dir }
+      parser.on("--static-dir=DIR", "Specify a directory to serve statically") { |dir| @config.static_dirs.cli_flag = [dir] }
 
       parser.separator
 

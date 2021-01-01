@@ -7,6 +7,7 @@ class Crem::App
   getter config = Config.new
   getter redirects = Array(Crem::Redirect).new
   getter parser : OptionParser | String = ""
+  getter static_dirs = Array(String).new
 end
 
 require "./server/*"
@@ -29,14 +30,18 @@ app.parse_env!
 app.parse_cli!
 app.parse_config!
 app.organize_redirects!
+app.organize_static_dirs!
 
 MIME.register(".gmi", "text/gemini")
+
+static_handlers = app.config.static_dirs.unwrap.map { |dir| Gemini::Server::StaticHandler.new(dir, true) }
+
+puts(app.config.static_dirs.unwrap.inspect.colorize(:cyan))
 
 server = Gemini::Server.new([
   Gemini::Server::LogHandler.new(STDOUT),
   Gemini::Server::InternalRedirectHandler.new(app.redirects.select(&.server_side?).map { |r| {r.from, r.to} }.to_h),
-  Gemini::Server::StaticHandler.new(app.config.static_dir.unwrap),
-])
+] + static_handlers)
 
 server.certificate_chain = app.config.cert_chain.unwrap
 server.private_key = app.config.private_key.unwrap

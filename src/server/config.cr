@@ -19,7 +19,7 @@ struct Config
 
   property root = Cascading(String).new("index.gmi")
   property no_root = Cascading(Bool).new(false)
-  property static_dir = Cascading(String).new(".")
+  property static_dirs = Cascading(Array(String)).new(["."])
 
   property redirects = Cascading(Array(Crem::Redirect)).new([] of Crem::Redirect)
 

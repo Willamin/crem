@@ -36,8 +36,6 @@ MIME.register(".gmi", "text/gemini")
 
 static_handlers = app.config.static_dirs.unwrap.map { |dir| Gemini::Server::StaticHandler.new(dir, true) }
 
-puts(app.config.static_dirs.unwrap.inspect.colorize(:cyan))
-
 server = Gemini::Server.new([
   Gemini::Server::LogHandler.new(STDOUT),
   Gemini::Server::InternalRedirectHandler.new(app.redirects.select(&.server_side?).map { |r| {r.from, r.to} }.to_h),

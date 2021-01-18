@@ -5,7 +5,7 @@ class Crem::App
     duplicates = @static_dirs.tally.select { |k, v| v > 1 }
 
     unless duplicates.empty?
-      puts("Warning: You have duplicate redirects defined:".colorize(:yellow))
+      puts("Warning: You have static directories defined:".colorize(:yellow))
       duplicates.each do |dup, q|
         puts("  '#{dup}'\n".colorize(:yellow))
       end

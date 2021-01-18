@@ -5,9 +5,7 @@ authors:
   - Will Lewis <will@wflewis.com>
 
 targets:
-  crem-repl:
-    main: src/repl.cr
-  crem-server:
+  crem:
     main: src/server.cr
 
 crystal: 0.35.1

@@ -1,0 +1,29 @@
+certificate_chain = "cert.pem"
+private_key = "key.pem"
+
+address = "0.0.0.0"
+port = 1965
+
+no_root = true
+
+[[redirect]]
+from = "/"
+to = "/index.gmi"
+status = 20
+
+[[redirect]]
+from = ""
+to = "/index.gmi"
+status = 20
+
+[[redirect]]
+from = "hello"
+to = "world"
+status = 20
+
+[[static_directory]]
+path = "."
+
+
+[[static_directory]]
+path = "/Users/will/Downloads"
